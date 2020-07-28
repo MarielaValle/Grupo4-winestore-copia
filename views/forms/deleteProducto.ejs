@@ -11,7 +11,8 @@
 
             <p>¿Está seguro de querer continuar?</p>
 
-            <form action='/products/delete/:<%= product.id %>?_method=DELETE' method='POST'
+<!-------------si pongo la ruta products/delete/id no funciona???? así si funciona-------------------------------------------->
+ <form action="<%= product.id %>?_method=DELETE" method='POST'
                 enctype='multipart/form-data'>
 
 
@@ -64,7 +65,7 @@
                 <%=product.imagen%>
                 <br>
 
-                <p class='avatar'><input type='file' name='imagen' id='imagen' class='uno' value="<%=product.imagen%>">
+                <p class='avatar'><input type='file' name='imagen' id='imagen' class='uno'  accept=".jpg,.png,.jpeg,.gif" value="<%=product.imagen%>">
                 </p>
 
                 <button type="submit" class="btn btn-primary" id="btn-form">Eliminar</button>

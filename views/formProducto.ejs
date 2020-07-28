@@ -1,6 +1,16 @@
 
 <%- include("partials/head")%>
 <%- include("partials/header")%>
+
+
+<!------------------mensajes de éxito-------------------------------->
+<div style='text-align: center;'>
+<% if (typeof data.mensaje != "undefined") { %>
+  <div class="alert alert-success" role="alert">
+    <%= data.mensaje %>
+  </div>
+  <% } %>
+</div>
 <!--------------------Agregar Producto---------------------------------------->
 <% if(data.Formulario == 'NuevoProducto'){ %>
 
@@ -24,6 +34,14 @@
     
     <% } %>
   
+ <!-----------------------Detalle Producto recién modificado------------------------------------>
+
+ <% if(data.Formulario == 'DetalleProducto'){ %>
+
+  <%- include("./forms/detalleProducto")%>
+  
+  <% } %>
+
   <!------------------------------------------------------------>
   <%- include("partials/footer")%>
   

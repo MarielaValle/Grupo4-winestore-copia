@@ -5,11 +5,11 @@
 
 
             <h3>Alta de productos</h3>
-           
+
 
             <p>Por favor llene los campos indicados </p>
 
-            
+
 
             <form action='/products/create' method='POST' enctype='multipart/form-data'>
 
@@ -52,9 +52,10 @@
 
 
                 <p><label for='imagen'>Foto de producto</label></p>
-                <p class='avatar'><input type='file' name='imagen' id='imagen' class='uno'></p>
-
-                <button type="submit" class="btn btn-primary" id="btn-form">Guardar</button>
+                <p class='avatar' >
+                        <input accept=".jpg,.png,.jpeg,.gif" name="imagen" type="file" id="imagen" class='uno'>
+                    </p>
+                        <button type="submit" class="btn btn-primary" id="btn-form">Guardar</button>
 
 
             </form>

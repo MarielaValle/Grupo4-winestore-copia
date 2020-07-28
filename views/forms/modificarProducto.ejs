@@ -10,8 +10,8 @@
       <p>Por favor realice las modificaciones que necesite </p>
 
 
-
-      <form action='/products/edit/<%= product.id %>?_method=PUT' method='POST' enctype='multipart/form-data'>
+<!---------/products/edit/ funciona con y sin esta linea-------------->
+      <form action='<%= product.id %>?_method=PUT' method='POST' enctype='multipart/form-data'>
 
         <p><label for='id'>ID</label></p>
         <p> <input type='number' name='id' id='id' class='uno' value="<%= product.id %>"></p>
@@ -61,7 +61,7 @@
         <%=product.imagen%>
         <br>
 
-        <p class='avatar'><input type='file' name='imagen' id='imagen' class='uno' value='<%=product.imagen%>'></p>
+        <p class='avatar'><input type='file' accept=".jpg,.png,.jpeg,.gif" name='imagen' id='imagen' class='uno' value="<%=product.imagen %>"></p>
 
         <button type="submit" class="btn btn-primary" id="btn-form">Modificar</button>
 

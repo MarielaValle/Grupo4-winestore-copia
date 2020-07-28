@@ -175,7 +175,7 @@ body {
 
 #filasPHome{
   justify-content: center;
-  background-image: url(/images/banner2.jpg);
+  background-image: url(/images/banner.jpg);
   background-size: cover;
   
 }
@@ -291,7 +291,12 @@ width: 80%;
 }
 
 
+.btn-success{
 
+  background-color:#712B42 ;
+  border-color:#712B42;
+  
+}
 
 
 

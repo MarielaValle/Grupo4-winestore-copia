@@ -1,0 +1,61 @@
+<%- include("partials/head")%>
+<%- include("partials/header")%>
+<!------------------------------------------------------------>
+
+
+<div class="section__content ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="mr-2 fa fa-align-justify"></i>
+                        <strong class="card-title" v-if="headerText">Carrito</strong>
+                    </div>
+                    <div class="card-body">
+
+
+                        <div class="table-responsive ">
+                            <table class="table table-borderless table-data3" id="carrito">
+                                <thead>
+                                    <tr>
+                                       <th>Cantidad</th>
+                                       <th>Descripción</th>
+                                       <th>Precio Unitario</th>
+                                        <th>Precio Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                            <% usercart.foreach( item=>{%>
+                                               <td> <%= item.Cantidad %></td>
+                                               <td> <%= item.Descripcion %></td>
+                                               <td>><%= item.Precio %></td>
+                                               <td>><%= item.Cantidad*item.Precio %></td>
+                                                                                 
+                                            <%})%>
+                                                    
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!------------------------------------------------------------>
+<%- include("partials/footer")%>
