@@ -7,7 +7,7 @@ const { userInfo } = require('os');
 let productsController = {
 
 
-	raiz: (req, res) => {
+	/*raiz: (req, res) => {
 
 		db.sequelize.query('SELECT * FROM productos')
 
@@ -20,7 +20,16 @@ let productsController = {
 
 			.catch(error => console.log(error));
 	},
+*/
 
+raiz: (req, res) => {
+	db.Producto.findAll()
+		.then(products => {
+			
+			res.render("products", {products});
+		})
+		.catch(error => console.log(error));
+},
 
 	detail: (req, res) => {
 
