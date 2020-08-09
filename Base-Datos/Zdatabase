@@ -1,5 +1,7 @@
 #script creacion base de datos en un query
 
+DROP DATABASE IF EXISTS database_winestore;
+
 CREATE DATABASE IF NOT EXISTS database_winestore;
 
 #selecciono base de datos
@@ -74,8 +76,8 @@ CREATE TABLE carritos (
   id INT NOT NULL AUTO_INCREMENT,
    id_usuario INT NULL,
   id_producto INT NULL,
-  fecha DATE NULL,
-  cantidad MEDIUMINT(100) NULL,
+  nombre_vino VARCHAR(100) NULL,
+  precio_venta MEDIUMINT(255) NULL,
   PRIMARY KEY (id),
   INDEX id_usuario_idx ( id_usuario ASC) VISIBLE,
   INDEX id_producto_idx (id_producto ASC) VISIBLE,

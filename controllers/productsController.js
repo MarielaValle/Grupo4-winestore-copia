@@ -22,14 +22,14 @@ let productsController = {
 	},
 */
 
-raiz: (req, res) => {
-	db.Producto.findAll()
-		.then(products => {
-			
-			res.render("products", {products});
-		})
-		.catch(error => console.log(error));
-},
+	raiz: (req, res) => {
+		db.Producto.findAll()
+			.then(products => {
+
+				res.render("products", { products });
+			})
+			.catch(error => console.log(error));
+	},
 
 	detail: (req, res) => {
 
@@ -172,14 +172,14 @@ raiz: (req, res) => {
 				},
 				include: ['Producto', 'Usuario']
 
-			  })
-				.then(function (userCarrito) {
+			})
+				.then(function (userCart) {
 
-					return res.render('carrito', { userCarrito })
+					return res.render('carrito', { userCart })
 				})
 				.catch(error => console.log(error));
 
-				}else {
+		} else {
 			let data = {
 				Formulario: "UsuarioRegistrado",
 				mensaje: 'Debe loguearse para comprar y/o registrarse antes'
@@ -212,7 +212,7 @@ raiz: (req, res) => {
 					db.Carrito.create(Item)
 						.then(function (Item) {
 
-							return res.redirect('/products/carrito')
+							return res.redirect('/products/carrito/<%= user.id %>/')
 
 						})
 

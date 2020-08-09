@@ -45,7 +45,7 @@ router.put('/edit/:id', upload.any(), productsController.update); /* PUT - Updat
 router.get('/delete/:id', productsController.delete);
 router.delete('/delete/:id', productsController.destroy);
 /***CARRITO***/
-router.get('/carrito', productsController.carrito);
+router.get('/carrito/:id', productsController.carrito);
 router.post('/carrito/:id', productsController.carritoAdd);
  
 module.exports = router;

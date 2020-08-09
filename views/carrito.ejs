@@ -3,59 +3,41 @@
 <!------------------------------------------------------------>
 
 
-<div class="section__content ">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <i class="mr-2 fa fa-align-justify"></i>
-                        <strong class="card-title" v-if="headerText">Carrito</strong>
-                    </div>
-                    <div class="card-body">
-
-
-                        <div class="table-responsive ">
-                            <table class="table table-borderless table-data3" id="carrito">
-                                <thead>
-                                    <tr>
-                                       <th>Cantidad</th>
-                                       <th>Descripción</th>
-                                       <th>Precio Unitario</th>
-                                        <th>Precio Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                            <% usercart.foreach( item=>{%>
-                                               <td> <%= item.Cantidad %></td>
-                                               <td> <%= item.Descripcion %></td>
-                                               <td>><%= item.Precio %></td>
-                                               <td>><%= item.Cantidad*item.Precio %></td>
-                                                                                 
-                                            <%})%>
-                                                    
-                                </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
+<div class="container-fluid" id="colorF">
+    <div class="row" id="filasPHome">
+        <div class="col-12">
+            <h2 class="products-title">Carrito</h2>
         </div>
+
+        <% userCart.forEach(item => { %>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+
+            <article class="product-box_data">
+                <h3>Item</h3>
+                <p>ID-PRODUCTO: <%= item.id_producto %></p>
+                <p>NOMBRE:<%= item.nombre_vino %></p>
+                <p>PRECIO:$ <%= item.precio_venta %></p>
+                <p>CANTIDAD</p>
+                <p>TOTAL ITEM</p>
+                <button type="submit" class="btn btn-primary" style='background-color:red'>Eliminar</button>
+
+            </article>
+
+
+        </div>
+        <%})%>
+        <div class="col-12" id="carritoComprar">
+            <h4>TOTAL CARRITO = xxx</h4>
+            <button type="submit" class="btn btn-primary" style='background-color:green '>COMPRAR</button>
+
+
+
+        </div>
+
+
     </div>
+
 </div>
-
-
-
-
-
-
-
-
-
 <!------------------------------------------------------------>
 <%- include("partials/footer")%>
