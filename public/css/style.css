@@ -154,16 +154,13 @@ body {
 .products-title{
   color:#0C0910;
   text-emphasis: bold;
-  padding-top: 80px;
-  padding-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   text-align:center;
   border-bottom: solid;
   border-color:#712B42;
   border-width: 5px;
-  
-  
-  
-  
+  font-family: Georgia, 'Times New Roman', Times, serif 
   
 }
 
@@ -189,7 +186,6 @@ body {
  /* border: solid;
   border-color: #712B42;
   border-radius: 5px;*/
-  height: 100vh;
   padding: 25px;
   margin-bottom: 50px;
   background-color: white;
@@ -298,6 +294,9 @@ width: 80%;
   
 }
 
+
+
+
 #carritoComprar{
 
   text-align: center;
@@ -308,28 +307,16 @@ width: 80%;
 }
 
 
+#dos{
 
+  
+  margin:10px
+}
 
+ 
+ 
+ /*.bg-dark{
 
+  height: 15vh;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ }*/

@@ -6,7 +6,7 @@ var router = express.Router();
 const apiDashboardController = require('../controllers/apiDashboardController');
 /* GET home page. */
 
-router.get('/', apiDashboardController.raiz);
+
 
 router.get('/cantidadProductos', apiDashboardController.cantidadProductos);
 

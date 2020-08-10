@@ -1,0 +1,66 @@
+<div class='container-fluid' id='registroC'>
+  
+
+    <div class="row justify-content-center align-items-center">
+
+      <div class="col-12 col-md-4 text-center pt-5 pb-5">
+    
+
+    <h3 #>Eliminar Usuario</h3>
+
+
+    <p style='color:red'>Este usuario se eliminará. ¿Está seguro de continuar?</p>
+
+
+<!---------/products/edit/ funciona con y sin esta linea-------------->
+
+
+<form action="/users/delete/<%=data.User.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+<div class="form-group">
+  <label for="nombre">Nombre:</label>
+  <input type="text" class="form-control" id="nombre" name="nombre" value='<%= data.User.nombre %>'/>
+</div>
+<div class="form-group">
+  <label for="apellido">Apellido:</label>
+  <input type="text" class="form-control" id="apellido" name="apellido" value='<%= data.User.apellido %>' />
+</div>
+<div class="form-group">
+  <label for="mail">Email:</label>
+  <input type="email" class="form-control" id="mail" name="email" value='<%= data.User.email %>'/>
+</div>
+<div class="form-group">
+
+</div>
+<div class="form-group">
+  <label for="categoria">Categoria:</label>
+  <input type="text" class="form-control" id="categoria" name="categoria"  />
+</div>
+<div class="form-group">
+  <div class="input-group justify-content-center align-items-center">
+
+    <p><label for='imagen'>Foto de Usuario a eliminar</label></p>
+
+      <img class="" src="/img/avatar/<%= data.User.imagen %>" style='width:30%' />
+
+      <br>
+      <%=data.User.imagen%>
+      <br>
+    
+
+  </div>
+</div>
+<button type="submit" class="btn btn-success mt-3">Confirmar</button>
+</form>
+
+
+
+
+
+
+
+<!-------------------------------------------------------------------->
+
+
+  </div>
+</div>
+</div>

@@ -1,0 +1,50 @@
+<%- include("partials/head")%>
+<%- include("partials/header")%>
+
+<!-------Codigo que recepciona mensajes de error de registro e ingreso------------------------->
+<% if (typeof errores != 'undefined') {%>
+    <div class="alert alert-danger" role="alert" style='text-align:left'>
+
+      <p style='color:red'>ERROR</p>
+      <Ul>
+        <% for (let i=0; i < errores.length; i++) { %>
+
+        <li> <%= errores[i].msg %> </li>
+
+        <% } %>
+
+      </Ul>
+    </div>
+    <% } %>
+
+<!------------------mensajes de éxito-------------------------------->
+
+<div style='text-align: center;'>
+    <% if (typeof data.mensaje != "undefined") { %>
+    <div class="alert alert-success" role="alert">
+        <%= data.mensaje %>
+    </div>
+    <% } %>
+</div>
+<!--------------------Modificar Usuarios---------------------------------------->
+
+<% if(data.Formulario == 'ModificarUsuario'){ %>
+
+<%- include("./formsUsers/modificarUsuario")%>
+
+<% } %>
+
+
+<!-----------------------Eliminar Usuario-------------------------->
+
+<% if(data.Formulario == 'DeleteUsuario'){ %>
+
+<%- include("./formsUsers/deleteUsuario")%>
+
+<% } %>
+
+
+
+
+<!------------------------------------------------------------>
+<%- include("partials/footer")%>

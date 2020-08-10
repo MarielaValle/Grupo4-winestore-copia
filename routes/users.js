@@ -16,8 +16,15 @@ router.post("/register", middles.CargarAvatar, [
 ],
      usersController.registrarse);
 
-//router.get("/:id/edit", usersController.FormEdicion);
-//router.put("/:id", usersController.Editando);
+/*** edit usuario ***/
+router.get('/edit/:id', usersController.edit)
+router.put('/edit/:id', middles.CargarAvatar, usersController.update); 
+
+/*** delete usuario ***/
+router.get('/delete/:id', usersController.delete);
+router.delete('/delete/:id', usersController.destroy);
+
+
 
 router.get("/profile", usersController.profile);
 router.get("/logout", usersController.logout )

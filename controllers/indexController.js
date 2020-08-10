@@ -15,6 +15,14 @@ let indexController={
 		
 		res.render("index",{productosRecomendados});
     },
+
+    dashboard: (req, res) => {
+     
+
+      res.render("dashboard");
+  },
+
+
     search: (req, res) => {
       // Do the magic
         const results = [];

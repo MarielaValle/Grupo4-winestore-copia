@@ -1,0 +1,77 @@
+<div class='container-fluid' id='registroC'>
+
+
+  <div class="row justify-content-center align-items-center">
+
+    <div class="col-12 col-md-4 text-center pt-5 pb-5">
+
+
+      <h3 #>Editar mis datos</h3>
+
+
+      <p>Por favor realice las modificaciones que necesite </p>
+
+
+      <!------------------------------------------------->
+
+
+      <form action="/users/edit/<%= data.User.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" value='<%=data.User.nombre%>' />
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido:</label>
+          <input type="text" class="form-control" id="apellido" name="apellido" value='<%=data.User.apellido%>' />
+        </div>
+        <div class="form-group">
+          <label for="mail">Email:</label>
+          <input type="email" class="form-control" id="mail" name="email" value='<%=data.User.email%>' />
+        </div>
+        <div class="form-group">
+          <label for="contrasenia">constraseña:</label>
+          <input type="password" class="form-control" id="contrasenia" name="contrasenia" required />
+        </div>
+        <div class="form-group">
+          <label for="contrasenia2">Confirme Contraseña:</label>
+          <input type="password" class="form-control" id="contrasenia2" name="contrasenia2" required />
+        </div>
+        <div class="form-group">
+          <label for="categoria">Categoria:</label>
+          <input type="text" class="form-control" id="categoria" name="categoria" value='<%=data.User.categoria%>' />
+        </div>
+        <div class="form-group">
+          <div class="input-group justify-content-center align-items-center">
+
+            <p><label for='imagen'>Foto de Usuario a modificar</label></p>
+
+            <br>
+            <img src="/img/avatar/<%= data.User.imagen%>" style='width:30%' alt='foto de perfil'>
+            <br>
+            <div>
+              <label class="input-group-btn"> Subir Imágen: </label>
+
+              <span class="btn btn-secondary btn-file">
+
+                <input accept=".jpg,.png,.jpeg,.gif" name="avatar" type="file" id="avatar">
+              </span>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Confirmar</button>
+      </form>
+
+    </div>
+
+
+
+
+
+    <!-------------------------------------------------------------------->
+
+
+  </div>
+</div>
+</div>

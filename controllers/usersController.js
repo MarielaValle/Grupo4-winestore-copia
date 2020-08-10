@@ -21,7 +21,7 @@ let usersController = {
 
 
     login: (req, res) => {
-      
+
 
         db.Usuario.findOne({
             where: {
@@ -36,9 +36,9 @@ let usersController = {
                     let validación = bcrypt.compareSync(req.body.contrasenia, usuario.contrasenia);
 
                     if (validación == true) {
-                      
+
                         req.session.user = usuario;
-                        user=req.session.user
+                        user = req.session.user
 
                         res.cookie('userCookie', user.id, { maxAge: 70000 * 120 })
                         res.redirect("/users/profile");
@@ -128,11 +128,11 @@ let usersController = {
                         });
 
 
-                        let data = {
+                    let data = {
                             Formulario: "UsuarioRegistrado",
                             mensaje: 'Se registró correctamente por favor ingrese para loguearse'
                         }
-                        res.render("usuarios", { data: data });
+                        res.render("usuarios", { data: data });    
 
 
                     } else {
@@ -202,10 +202,126 @@ let usersController = {
 
     },
 
-    // funcion borrador hasta que se completa cada controlador.
-    /*function prueba(res, req) {
-      res.send("corriendo");
-    }*/
+    edit: (req, res) => {
+        if (req.session.user) {
+
+            db.Usuario.findByPk(req.params.id)
+
+                .then(function (usuario) {
+
+
+                    let data = {
+                        Formulario: 'ModificarUsuario',
+                        User: usuario
+                    }
+
+                    res.render('formsUser', { data: data });
+
+                })
+
+                .catch(error => console.log(error));
+        }
+    },
+
+    update: (req, res) => {
+
+        let errores = validationResult(req);
+        if (errores.isEmpty()) {  
+
+        let user=req.session.user;    
+        
+
+        let contraseniaAcargar;
+
+            if (req.body.contrasenia == req.body.contrasenia2) {
+
+                contraseniaAcargar = bcrypt.hashSync(req.body.contrasenia, 10);
+
+            } else {
+                let data = { 
+                    Formulario: 'ModificarUsuario',
+                     User:user
+                };
+                res.render("formsUsers", { data: data, errores: [{ msg: 'Las contraseñas no coinciden' }] });
+
+            }
+
+        db.Usuario.update({
+           
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+            contrasenia: contraseniaAcargar,
+            categoria: req.body.categoria,
+            imagen: req.body.imagen
+        },
+            {
+
+                where:
+                    { id: req.params.id }
+
+
+
+            })
+        
+          
+           let data = {
+            Formulario: 'ModificarUsuario',
+            User: user,
+             mensaje: 'Su perfil se actualizó correctamente por favor ir a su perfil para ver los cambios'
+        }
+
+        res.render('formsUser', { data: data });
+           
+
+
+        }
+
+        else {
+
+            let data = { 
+                Formulario: 'ModificarUsuario',
+                 User:req.params.id
+            };
+
+            res.render("formsUser", { data: data, errores: errores.errors });
+        }
+
+	},
+
+
+    delete: (req, res) => {
+        if (req.session.user) {
+            db.Usuario.findByPk(req.params.id)
+                .then(function (usuario) {
+                    let data = {
+                        Formulario: 'DeleteUsuario',
+                        User: usuario
+                    }
+                    res.render('formsUser', { data, data });
+                })
+
+                .catch(error => console.log(error));
+            }
+        },
+
+        destroy: (req, res) => {
+            // Do the magic
+
+            user = undefined;
+             req.session.user = user;
+
+            db.Usuario.destroy({
+                where: {
+                    id: req.params.id
+                }
+                
+            })
+    
+            res.redirect('/');
+    
+    
+        }
 
 };
 
