@@ -70,7 +70,15 @@ let usersController = {
 
 
     },
+    registroAdmin:(req, res) => {
 
+        let data = {
+            Formulario: 'RegistroAdmin',
+            
+        }
+
+        res.render('formsUser', { data: data });
+    },
 
     registroForm: (req, res) => {
         let data = {
