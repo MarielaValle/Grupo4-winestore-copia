@@ -33,13 +33,22 @@ let productsController = {
 
 	detail: (req, res) => {
 
+		if (req.session.user){
+			user = req.session.user
+	  } else{
+ 
+		 user={
+			categoria:null
+		}
+	}
+
 		db.Producto.findByPk(req.params.id)
 
 			.then(function (producto) {
 
 
 
-				res.render('detail', { producto });
+				res.render('detail', { producto, user });
 
 			})
 			.catch(error => console.log(error));

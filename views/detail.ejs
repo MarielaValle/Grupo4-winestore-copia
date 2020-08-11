@@ -34,13 +34,20 @@
           <p>cantidad:<%= producto.cantidad %></p>
         </div>
 
+
+        <% if ( user.categoria == null) { %>
+          <button type="submit" class="btn btn-secondary">
+            Agregar al Carrito
+          </button>
+         <% } %>
+
         <% if ( user.categoria == 'cliente') { %>
         <button type="submit" class="btn btn-secondary">
           Agregar al Carrito
         </button>
        <% } %>
 
-       <% if (user.categoria == 'admin') { %>
+       <% if (user.categoria == 'admin'|| user.categoria == 'dueño') { %>
           <div class="col-12">
               <a href='/products/edit/<%= producto.id%>/'type="button" class="btn btn-warning" id='dos'>Editar Producto</a>
           

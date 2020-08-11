@@ -25,7 +25,7 @@
         <i class="fa fa-shopping-cart fa-1x"></i>
       </a>
 
-      <% if ( user.categoria == 'admin'|| 'dueño') { %>
+      <% if ( user.categoria == 'admin'|| user.categoria=='dueño') { %>
         <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
         <% } %>
 
